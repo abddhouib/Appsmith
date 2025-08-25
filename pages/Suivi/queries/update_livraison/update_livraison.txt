@@ -1,0 +1,29 @@
+WITH current AS (
+  SELECT id, num_of,
+         COALESCE(qte_livree, 0)  AS q_init,
+         COALESCE(qte_lancee, 0)  AS q_lancee
+  FROM of_tracking
+  WHERE id = {{ Number(appsmith.store.id) }}
+),
+updated AS (
+  UPDATE of_tracking o
+  SET qte_livree = LEAST(
+      (SELECT q_init FROM current) + GREATEST({{ Number(Number_qty.value) || 0 }}, 0),
+      (SELECT q_lancee FROM current)
+  )
+  FROM current c
+  WHERE o.id = c.id
+  RETURNING o.id, o.num_of, o.qte_livree AS q_total
+)
+INSERT INTO of_log (of_num, etape, qte_initiale, qte_ajoutee, qte_totale, modifie_par, date_modif, commentaire)
+SELECT u.num_of,
+       'livraison',
+       c.q_init,
+       {{ Number(Number_qty.value) || 0 }},
+       u.q_total,
+       {{ appsmith.user.email }},
+       NOW(),
+       {{ CommentInput.text  }}
+FROM updated u
+JOIN current c ON c.id = u.id
+RETURNING *;

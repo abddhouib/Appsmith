@@ -1,0 +1,11 @@
+{
+  "gitSyncId": "68a8489d479c6661acc699ab_bb6aeb2a-faf6-4924-9e94-e21938db3e60",
+  "id": "Suivi_auth",
+  "unpublishedCollection": {
+    "name": "auth",
+    "pageId": "Suivi",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": []
+  }
+}

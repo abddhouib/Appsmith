@@ -1,0 +1,68 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 17,
+  "defaultSelectedValues": "[\"ouvert\",\"en cours\"]",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "isDisabled": false,
+  "isInline": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "2hmz3ucfpa",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 7,
+  "mobileLeftColumn": 31,
+  "mobileRightColumn": 54,
+  "mobileTopRow": 1,
+  "needsErrorInfo": false,
+  "optionAlignment": "flex-start",
+  "options": [
+    {
+      "label": "Cloturés",
+      "value": "cloture"
+    },
+    {
+      "label": "Ouverts",
+      "value": "ouvert"
+    },
+    {
+      "label": "Encours",
+      "value": "en cours"
+    },
+    {
+      "label": "Fermé forcé",
+      "value": "ferme force"
+    }
+  ],
+  "originalBottomRow": 17,
+  "originalTopRow": 13,
+  "parentColumnSpace": 19.9375,
+  "parentId": "19vp3f1t69",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 23,
+  "topRow": 13,
+  "type": "CHECKBOX_GROUP_WIDGET",
+  "version": 2,
+  "widgetId": "dygbnutfkd",
+  "widgetName": "CheckboxGroup1"
+}

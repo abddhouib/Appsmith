@@ -1,0 +1,6 @@
+SELECT id, username, full_name, role
+FROM users
+WHERE is_active = true
+  AND username = {{ Input_Username.text.trim() }}
+  AND password = {{ Input_Password.text }}
+LIMIT 1;

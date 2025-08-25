@@ -1,0 +1,26 @@
+WITH target AS (
+  SELECT id, num_of, COALESCE(qte_recue_pf,0) AS q_pf
+  FROM of_tracking
+  WHERE id = {{ appsmith.store.forceTarget?.id || Table1.selectedRow.id }}
+),
+forced AS (
+  UPDATE of_tracking o
+  SET statut_force = TRUE,
+      force_reason = {{ ForceReasonInput.text || 'Clôture forcée via Appsmith' }},
+      forced_by    = {{ appsmith.user.email }},
+      force_date   = NOW()
+  FROM target t
+  WHERE o.id = t.id
+  RETURNING o.id, o.num_of, o.statut_force, o.force_date, o.forced_by, o.force_reason, (SELECT q_pf FROM target)
+)
+INSERT INTO of_log (of_num, etape, qte_initiale, qte_ajoutee, qte_totale, modifie_par, date_modif, commentaire)
+SELECT f.num_of,
+       'cloture_forcee',
+       f.q_pf,              -- état final au moment de la clôture
+       0,
+       f.q_pf,
+       f.forced_by,
+       f.force_date,
+       f.force_reason
+FROM forced f
+RETURNING *;

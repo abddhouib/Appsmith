@@ -1,0 +1,60 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 33,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonStyle": "PRIMARY_BUTTON",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onClick"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": "{{\n!Input_num_of.text?.trim()\n|| !Input_client.text?.trim()\n|| !Input_reference.text?.trim()\n|| !(Number(Input_qte_lancee.value) > 0)\n|| !Input_duedate.selectedDate\n}}\n",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "8jm18qlhar",
+  "leftColumn": 41,
+  "minWidth": 120,
+  "mobileBottomRow": 22,
+  "mobileLeftColumn": 47,
+  "mobileRightColumn": 63,
+  "mobileTopRow": 18,
+  "needsErrorInfo": false,
+  "onClick": "{{\ninsert_of.run(\n\t() => {\n\t\t// insert_of doit faire: ... ON CONFLICT (num_of) DO NOTHING RETURNING id;\n\t\tconst rows = insert_of.data;\n\t\tconst inserted = Array.isArray(rows) && rows.length > 0 && rows[0].id;\n\n\t\tif (inserted) {\n\t\t\tget_all_of.run();\n\t\t\t// 🔄 Vide tous les champs (adapte les noms si besoin)\n\t\t\tresetWidget(\"Input_num_of\");\n\t\t\tresetWidget(\"Input_client\");\n\t\t\tresetWidget(\"Input_designation\");\n\t\t\tresetWidget(\"Input_reference\");\n\t\t\tresetWidget(\"Input_qte_lancee\");   // ou Number_qte_lancee selon ton widget\n\t\t\tresetWidget(\"Input_duedate\");      // ton DatePicker\n\t\t\tshowAlert(\"✅ OF ajouté\", \"success\");\n\t\t} else {\n\t\t\tshowAlert(\"🚫 Ce numéro d'OF existe déjà.\", \"warning\");\n\t\t}\n\t},\n\t(e) => showAlert(\"❌ \" + e, \"error\")\n)\n}}\n",
+  "parentId": "hxw6kcav35",
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 61,
+  "text": "Ajouter Of",
+  "topRow": 27,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "ez3ogz7gk9",
+  "widgetName": "Button2"
+}

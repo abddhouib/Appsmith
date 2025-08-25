@@ -1,0 +1,79 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "autoFocus": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 19,
+  "boxShadow": "none",
+  "defaultText": "0",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "maxNum"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "onSubmit"
+    },
+    {
+      "key": "onFocus"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onSubmit"
+    },
+    {
+      "key": "onFocus"
+    }
+  ],
+  "iconAlign": "left",
+  "inputType": "NUMBER",
+  "isDisabled": false,
+  "isLoading": false,
+  "isRequired": true,
+  "isVisible": true,
+  "key": "8r948wt8rs",
+  "label": "Entrez la quantité",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelStyle": "",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 1,
+  "maxDynamicHeight": 9000,
+  "maxNum": "{{ appsmith.store.max }}",
+  "minDynamicHeight": 4,
+  "minNum": "0",
+  "minWidth": 450,
+  "mobileBottomRow": 13,
+  "mobileLeftColumn": 2,
+  "mobileRightColumn": 22,
+  "mobileTopRow": 6,
+  "needsErrorInfo": false,
+  "onFocus": "{{\n\n}}",
+  "onSubmit": "{{\n(() => {\n\tconst d = Number(Number_qty.value) || 0;\n\tconst max = Number(appsmith.store.remain) || 0;\n\tif (d <= 0) { showAlert(\"❌ Quantité invalide (> 0)\", \"error\"); return; }\n\tif (d > max) { showAlert(\"🚫 Trop grand. Max: \" + max, \"error\"); return; }\n\n\tconst q =\n\t\t\t\tappsmith.store.step === \"livraison\"  ? update_livraison :\n\tappsmith.store.step === \"sachetage\"  ? update_sachetage :\n\tappsmith.store.step === \"cartonnage\" ? update_cartonnage :\n\tupdate_reception_pf;\n\n\tq.run(\n\t\t() => { get_all_of.run(); closeModal('ModalStep'); },\n\t\t(e) => showAlert(\"❌ \" + e, \"error\")\n\t);\n})()\n}}\n",
+  "originalBottomRow": 19,
+  "originalTopRow": 15,
+  "parentColumnSpace": 6.9375,
+  "parentId": "mvtiivr4bq",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "resetOnSubmit": true,
+  "responsiveBehavior": "fill",
+  "rightColumn": 63,
+  "shouldAllowAutofill": false,
+  "showStepArrows": false,
+  "topRow": 15,
+  "type": "INPUT_WIDGET_V2",
+  "version": 2,
+  "widgetId": "2itihvoieu",
+  "widgetName": "Number_qty"
+}

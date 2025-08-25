@@ -1,0 +1,4 @@
+SELECT *
+FROM of_log
+WHERE of_num = {{ Table1.selectedRow.num_of || '' }}
+ORDER BY date_modif DESC, id DESC;

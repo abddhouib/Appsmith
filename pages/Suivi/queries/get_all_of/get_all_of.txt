@@ -1,0 +1,21 @@
+SELECT
+  id, num_of, client, designation, reference,
+  qte_lancee,
+  qte_livree,
+  qte_sachetee,
+  qte_cartonnee,
+  qte_recue_pf,
+  (qte_lancee - qte_recue_pf) AS reste_a_produire,
+  date_lancement, date_echeance,
+
+CASE
+  WHEN statut_force IS TRUE THEN 'ferme force'
+  WHEN qte_recue_pf >= qte_lancee THEN 'cloture'
+  WHEN qte_recue_pf > 0 THEN 'en cours'
+  ELSE 'ouvert'
+END AS statut_calcule
+
+
+
+FROM of_tracking
+ORDER BY id DESC;

@@ -1,0 +1,12 @@
+INSERT INTO of_tracking (num_of, client, designation, reference, qte_lancee, date_echeance)
+VALUES (
+  {{ Input_num_of.text }},
+  {{ Input_client.text }},
+  {{ Input_designation.text }},
+  {{ Input_reference.text }},
+  {{ Number(Input_qte_lancee.value) }},
+  to_date({{ Input_duedate.formattedDate }}, 'DD/MM/YYYY') 
+)
+ON CONFLICT (num_of) DO NOTHING
+RETURNING id;
+

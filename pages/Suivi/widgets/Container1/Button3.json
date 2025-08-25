@@ -1,0 +1,62 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 12,
+  "bottomRowBeforeCollapse": 11,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "PRIMARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": "{{ auth.isRole('Plannificateur','Admin') }}\n",
+  "key": "8jm18qlhar",
+  "leftColumn": 53,
+  "minWidth": 120,
+  "mobileBottomRow": 15,
+  "mobileLeftColumn": 29,
+  "mobileRightColumn": 45,
+  "mobileTopRow": 11,
+  "needsErrorInfo": false,
+  "onClick": "{{showModal(Modal_insert_of.name);}}",
+  "originalBottomRow": 14,
+  "originalTopRow": 10,
+  "parentColumnSpace": 20.25,
+  "parentId": "19vp3f1t69",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 64,
+  "text": "Ajouter Un OF",
+  "topRow": 8,
+  "topRowBeforeCollapse": 7,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "r7xblnfdku",
+  "widgetName": "Button3"
+}
