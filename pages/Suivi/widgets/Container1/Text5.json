@@ -45,7 +45,7 @@
   "shouldTruncate": false,
   "text": "{{ appsmith.store.currentUser.full_name }} : {{ appsmith.store.currentUser.role }} \n",
   "textAlign": "RIGHT",
-  "textColor": "#231F20",
+  "textColor": "#ef4444",
   "topRow": 0,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
